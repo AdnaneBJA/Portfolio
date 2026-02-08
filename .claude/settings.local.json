@@ -3,7 +3,8 @@
     "allow": [
       "Bash(del \"D:\\\\Portfolio-master\\\\src\\\\components\\\\ScrollToTop.js\")",
       "Bash(npm start)",
-      "Bash(npx react-scripts build)"
+      "Bash(npx react-scripts build)",
+      "Bash(gh repo create:*)"
     ]
   }
 }
