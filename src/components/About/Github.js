@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Row } from "react-bootstrap";
 
 function Github() {
-  const totalContributions = 330;
+  const [totalContributions, setTotalContributions] = useState(null);
+
+  useEffect(() => {
+    fetch("https://github-contributions-api.deno.dev/AdnaneBJA.json")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.totalContributions !== undefined) {
+          setTotalContributions(data.totalContributions);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <Row
@@ -15,7 +26,7 @@ function Github() {
       <h1 className="project-heading pb-4" style={{ paddingBottom: "20px" }}>
         Days I <strong className="purple">Code</strong>
       </h1>
-      {totalContributions && (
+      {totalContributions !== null && (
         <p
           style={{
             textAlign: "center",
